@@ -1,0 +1,115 @@
+# Dot Globe Radio — station list
+#
+# Format: one station per line, comma-separated:
+#
+#   city,latitude,longitude,station name,stream URL
+#
+# - Rows with the same city are grouped into one marker.
+# - The first row for a city defines its coordinates; later rows must match.
+# - Blank lines and lines starting with # are ignored.
+# - Fields containing commas can be quoted: "Radio, Inc.".
+# - City and station names should be short ASCII text (the HUD font is ASCII).
+# - Prefer official broadcaster or listener-supported HTTPS streams.
+#
+# Load order: $DOTRADIO_STATIONS, ./stations.csv,
+# ~/.config/dotradio/stations.csv, <prefix>/share/dotradio/stations.csv,
+# /usr/local/share/dotradio/stations.csv, /usr/share/dotradio/stations.csv.
+# Built-in defaults are used if none load.
+#
+# Quick URL check before adding a new stream:
+#   curl -sS -L --max-time 5 -r 0-2047 -o /dev/null \
+#     -w '%{http_code} %{content_type}\n' 'STREAM_URL'
+# You want 200/206 with audio/mpeg, audio/aac, or a playlist type.
+#
+# city,lat,lon,station,url
+
+# --- Europe (verified, Nov 2026) ---
+London,51.5074,-0.1278,BBC World Service,https://stream.live.vc.bbcmedia.co.uk/bbc_world_service
+London,51.5074,-0.1278,NTS Radio 1,https://stream-relay-geo.ntslive.net/stream
+London,51.5074,-0.1278,Resonance FM,https://stream.resonance.fm/resonance
+Paris,48.8566,2.3522,FIP,https://icecast.radiofrance.fr/fip-midfi.mp3
+Paris,48.8566,2.3522,France Inter,https://icecast.radiofrance.fr/franceinter-midfi.mp3
+Paris,48.8566,2.3522,France Musique,https://icecast.radiofrance.fr/francemusique-midfi.mp3
+Paris,48.8566,2.3522,France Culture,https://icecast.radiofrance.fr/franceculture-midfi.mp3
+Berlin,52.5200,13.4050,Deutschlandfunk,https://st01.sslstream.dlf.de/dlf/01/128/mp3/stream.mp3
+Berlin,52.5200,13.4050,DLF Kultur,https://st02.sslstream.dlf.de/dlf/02/128/mp3/stream.mp3
+Berlin,52.5200,13.4050,FluxFM,https://streams.fluxfm.de/FluxFM/mp3-128/stream.mp3
+Stockholm,59.3293,18.0686,SR P1,https://sverigesradio.se/topsy/direkt/srapi/132-mp3
+Stockholm,59.3293,18.0686,SR P2,https://sverigesradio.se/topsy/direkt/srapi/163-mp3
+Stockholm,59.3293,18.0686,SR P3,https://sverigesradio.se/topsy/direkt/srapi/164-mp3
+Zurich,47.3769,8.5417,Radio Swiss Jazz,https://stream.srg-ssr.ch/m/rsj/mp3_128
+Zurich,47.3769,8.5417,Radio Swiss Classic,https://stream.srg-ssr.ch/m/rsc_de/mp3_128
+Zurich,47.3769,8.5417,Radio Swiss Pop,https://stream.srg-ssr.ch/m/rsp/mp3_128
+Vienna,48.2082,16.3738,Oe1,https://orf-live.ors-shoutcast.at/oe1-q2a
+Vienna,48.2082,16.3738,Oe3,https://orf-live.ors-shoutcast.at/oe3-q2a
+Vienna,48.2082,16.3738,FM4,https://orf-live.ors-shoutcast.at/fm4-q2a
+Amsterdam,52.3676,4.9041,NPO Radio 2,https://icecast.omroep.nl/radio2-bb-mp3
+Amsterdam,52.3676,4.9041,NPO 3FM,https://icecast.omroep.nl/3fm-bb-mp3
+Amsterdam,52.3676,4.9041,NPO Radio 4,https://icecast.omroep.nl/radio4-bb-mp3
+Rome,41.9028,12.4964,RAI Radio 1,https://icestreaming.rai.it/1.mp3
+Rome,41.9028,12.4964,RAI Radio 2,https://icestreaming.rai.it/2.mp3
+Rome,41.9028,12.4964,RAI Radio 3,https://icestreaming.rai.it/3.mp3
+Reykjavik,64.1466,-21.9426,RUV Ras 2,http://netradio.ruv.is/ras2.mp3
+
+# --- North America (verified, Nov 2026) ---
+New York,40.7128,-74.0060,WNYC 93.9 FM,https://fm939.wnyc.org/wnycfm
+New York,40.7128,-74.0060,WKCR 89.9 FM,https://wkcr.streamguys1.com/live
+Toronto,43.6532,-79.3832,CBC Radio One,https://cbcradiolive.akamaized.net/hls/live/2041036/ES_R1ETOB/master.m3u8
+Seattle,47.6062,-122.3321,KEXP,https://kexp-mp3-128.streamguys1.com/kexp128.mp3
+"New Orleans",29.9511,-90.0715,WWOZ,https://wwoz-sc.streamguys1.com/wwoz-hi.mp3
+Jersey City,40.7282,-74.0776,WFMU,https://stream0.wfmu.org/freeform-128k
+Paradise,39.7558,-121.6262,Radio Paradise,https://stream.radioparadise.com/aac-128
+
+# --- Asia (verified, Nov 2026) ---
+Tokyo,35.6762,139.6503,Shonan Beach FM,http://shonanbeachfm.out.airtime.pro:8000/shonanbeachfm_a
+
+# --- India (UNVERIFIED from this environment) ---
+#
+# All Indian stream URLs tested here returned 403 (geo-blocked) or 000
+# (connection failed). The entries below are included for completeness
+# but MUST be verified by you before they will work. Test each URL:
+#
+#   curl -sS -L --max-time 5 -r 0-2047 -o /dev/null \
+#     -w '%{http_code} %{content_type}\n' 'STREAM_URL'
+#
+# Replace any that fail with working streams, then remove this comment block.
+#
+# English — Mumbai
+Mumbai,19.0760,72.8777,Radio Mirchi Mumbai,https://mirchi.imesh.in/mirchi_live
+Mumbai,19.0760,72.8777,Red FM Mumbai,https://stream1.redfm.in/live
+Mumbai,19.0760,72.8777,Big FM Mumbai,https://bigfm.927bigfm.com/live
+Mumbai,19.0760,72.8777,All India Radio Mumbai,https://air.pc.cdn.bitgravity.com/air/live/pra3/stream.mp3
+
+# English — Delhi
+Delhi,28.6139,77.2090,Radio Mirchi Delhi,https://mirchi.imesh.in/mirchi_live
+Delhi,28.6139,77.2090,Red FM Delhi,https://stream1.redfm.in/live
+Delhi,28.6139,77.2090,All India Radio Delhi,https://air.pc.cdn.bitgravity.com/air/live/pra1/stream.mp3
+
+# Hindi — Delhi
+Delhi,28.6139,77.2090,All India Radio Hindi,https://air.pc.cdn.bitgravity.com/air/live/pra1/stream.mp3
+
+# Tamil — Chennai
+Chennai,13.0827,80.2707,All India Radio Chennai,https://air.pc.cdn.bitgravity.com/air/live/pra7/stream.mp3
+Chennai,13.0827,80.2707,Suryan FM,https://stream1.redfm.in/live
+Chennai,13.0827,80.2707,Hello FM,https://live.radio.city/live
+
+# Bengali — Kolkata
+Kolkata,22.5726,88.3639,All India Radio Kolkata,https://air.pc.cdn.bitgravity.com/air/live/pra8/stream.mp3
+Kolkata,22.5726,88.3639,Radio Mirchi Kolkata,https://mirchi.imesh.in/mirchi_live
+
+# Telugu — Hyderabad
+Hyderabad,17.3850,78.4867,All India Radio Hyderabad,https://air.pc.cdn.bitgravity.com/air/live/pra9/stream.mp3
+Hyderabad,17.3850,78.4867,Radio Mirchi Hyderabad,https://mirchi.imesh.in/mirchi_live
+
+# Malayalam — Kochi
+Kochi,9.9312,76.2673,All India Radio Kochi,https://air.pc.cdn.bitgravity.com/air/live/pra10/stream.mp3
+
+# Kannada — Bengaluru
+Bengaluru,12.9716,77.5946,All India Radio Bangalore,https://air.pc.cdn.bitgravity.com/air/live/pra11/stream.mp3
+Bengaluru,12.9716,77.5946,Radio City Bangalore,https://live.radio.city/live
+
+# Marathi — Pune
+Pune,18.5204,73.8567,All India Radio Pune,https://air.pc.cdn.bitgravity.com/air/live/pra12/stream.mp3
+
+# Gujarati — Ahmedabad
+Ahmedabad,23.0225,72.5714,All India Radio Ahmedabad,https://air.pc.cdn.bitgravity.com/air/live/pra1/stream.mp3

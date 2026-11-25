@@ -1,0 +1,24 @@
+# Build output
+dotradio
+*.o
+*.d
+*.a
+*.so
+
+# Editor / OS
+*~
+*.swp
+*.swo
+.vscode/
+.idea/
+.DS_Store
+
+# Agent / tooling files (not part of the project)
+skills/
+.gemini/
+.agents/
+
+# Local runtime data
+core
+core.*
+*.log

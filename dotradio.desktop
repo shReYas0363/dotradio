@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=Application
+Version=1.5
+Name=Dot Globe Radio
+GenericName=Internet Radio
+Comment=Access world Radio
+Exec=dotradio
+TryExec=dotradio
+Icon=dotradio
+Terminal=false
+Categories=AudioVideo;Audio;Player;
+Keywords=radio;internet radio;stream;globe;world;music;online;
+StartupNotify=false
+StartupWMClass=dotradio

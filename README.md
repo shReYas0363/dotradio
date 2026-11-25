@@ -1,6 +1,6 @@
 # Dot Globe Radio
 
-Something fun I tried to get back to C-Programming, now with AI. Internet radio on a dot-matrix globe. Click a city marker to tune in. Click it again to cycle through Channels. India dominated but you can make it however you like. 
+Something fun I tried to get back to C-Programming after a long time. I always wanted a one stop radio, because I geniunely like listening to random funk/classical music in languages I don't understand, and also keep up with world news a bit, while I'm trying to learn more languages. This is an Internet radio on a dot-matrix globe rendered using OpenGL. Click a city marker to tune in. Click it again to cycle through Channels. India dominated, but you can modify it however you like. 
 
 ## Run
 
@@ -57,6 +57,3 @@ make uninstall
 
 - **Land mask (`landmask.h`)** — rasterised from [Natural Earth](https://www.naturalearthdata.com/) 110m land polygons (public domain).
 - **Radio streams (`stations.csv`)** — the URLs are publicly listed streams; the audio and station names/trademarks belong to their broadcasters, including BBC, All India Radio (Prasar Bharati), Radio France, Deutschlandfunk, NPO, ORF, RAI, Sveriges Radio, SRG SSR, CBC, KEXP, NTS, Radio Paradise, WFMU, WNYC, WKCR, WWOZ, FluxFM, Resonance FM, RÚV, Red FM, Radio Mirchi, Big FM, Radio City, Hello FM, Suryan FM and Shonan Beach FM. Streams may change or be withdrawn at any time.
-- **Audio playback** — uses [mpv](https://mpv.io/) (`libmpv`, loaded at runtime) or [FFmpeg](https://ffmpeg.org/)'s `ffplay`. Neither is bundled or redistributed.
-- **City list (`cities.h`)** — names with approximate public geographic coordinates.
-- **Display** — X11 and OpenGL/GLX via system libraries. The on-screen text uses a hand-drawn 5x7 bitmap font.
